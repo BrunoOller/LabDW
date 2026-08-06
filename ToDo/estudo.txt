@@ -1,0 +1,27 @@
+Para iniciar projeto: npm init -y
+
+Para instalações: npm install | npm i
+
+Se apagar a pasta de "modules", é só executar o comando npm i no terminal, para criar ela novamente
+
+------------------------------------------------
+
+No package.json, alterar o type para "module" (se não houver, pode adicionar)
+
+Instalar: express, mongoose, cors, dotenv -> npm install ... | npm i ...
+
+Intalar para desenvolvimento: nodemon -> npm install --save-dev ... ou npm install -D ... | npm i --save-dev ... ou npm i -D ...
+
+------------------------------------------------
+
+-> Desenvolvimento:
+
+Criar o arquivo index.js na pasta do Backend
+
+Para importar, import nome-da-biblioteca from "nome-da-biblioteca";
+
+Criar o arquivo conn.js na pasta db
+
+Criar um arquivo na pasta Models
+
+Criar um arquivo na pasta Controllers
