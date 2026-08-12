@@ -25,3 +25,24 @@ Criar o arquivo conn.js na pasta db
 Criar um arquivo na pasta Models
 
 Criar um arquivo na pasta Controllers
+
+Criar um arquivo na pasta Routes. Caso existir mais que um Controller. É possível colocar todas as rotas 
+em um único arquivo ou criar arquivos separados (Recomendado criar um para cada).
+
+Importar as rotas para o index.js e ligar o express com as rotas
+
+Instalação do Swagger:
+npm i swagger-ui-express
+npm i -D swagger-autogen
+
+Alterar a parte "scripts" para incluir o Swagger
+
+Criar um arquivo na raiz da pasta do Backend chamado "swagger.js"
+
+Para rodar o projeto:
+npm run swagger
+
+Alterar o index inserindo o Swagger
+
+Para subir o Backend:
+npm start
