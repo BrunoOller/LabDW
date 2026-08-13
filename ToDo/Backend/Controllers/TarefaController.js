@@ -1,5 +1,5 @@
 // Importando Model
-import Tarefa from "../Models/Tarefa";
+import Tarefa from "../Models/Tarefa.js";
 import { Types } from "mongoose";
 
 export default class TarefaController {
