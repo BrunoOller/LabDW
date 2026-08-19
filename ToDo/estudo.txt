@@ -54,3 +54,52 @@ Como o React roda na porta 5173, alterar na index a porta 3000 para a porta do R
 
 Para instalar o Tailwind CSS:
 executar o comando: "npm i tailwindcss @tailwindcss/vite" na pasta do Frontend
+
+Instalar para o Frontend:
+npm i react-router-dom axios
+
+Baixar arquivos disponíveis no Classroom:
+Criar pastas: Pages e Components no Frontend/src
+Salvar TodoItem em Components
+Salvar TodoForm e TodoList em Pages
+Substituir App.jsx
+Salvar logo-todo.png em assets
+
+Apagar o App.css
+Limpar o index.css e adicionar o import do Tailwind
+@import "tailwindcss";
+
+Adicionar o import do Tailwind no vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite';
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+
+Apagar imagens do assets, exceto a logo-todo.png
+
+Alterar o index.html
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+Alterar o main.jsx
+
+Alterar a porta do Backend no index.js para 5173 (Igual no Frontend)
+
+No src, criar a pasta "api" -> Dentro dela criar um arquivo chamado Todo.jsx
+
+Alterar TodoForm.jsx
