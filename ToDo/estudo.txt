@@ -103,3 +103,7 @@ Alterar a porta do Backend no index.js para 5173 (Igual no Frontend)
 No src, criar a pasta "api" -> Dentro dela criar um arquivo chamado Todo.jsx
 
 Alterar TodoForm.jsx
+
+Alterar o TodoList.jsx
+
+Remover o comentário da rota do TodoList do arquivo App.jsx

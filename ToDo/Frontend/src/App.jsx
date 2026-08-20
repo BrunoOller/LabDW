@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {Routes, Route} from "react-router-dom";
 import TodoForm from "./Pages/TodoForm";
-//import TodoList from "./Pages/TodoList";
+import TodoList from "./Pages/TodoList";
 import logoTodo from './assets/logo-todo.png';
 export default function App() {
   return (
@@ -15,7 +15,7 @@ export default function App() {
       </header>
       <main className='max-w-3xl mx-auto bg-white rouded-lg shadow p-6'>
         <Routes>
-          {/* {<Route path="/" element={<TodoList />}/> */}
+          <Route path="/" element={<TodoList />}/>
           <Route path="/new" element={<TodoForm />}/>
         </Routes>
       </main>

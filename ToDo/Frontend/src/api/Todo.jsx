@@ -6,5 +6,5 @@ const api = axios.create({
     }
 })
 export const getTodos=()=>api.get("/getAll");
-export const createTodos=()=>api.post("/create");
+export const createTodos=(payload)=>api.post("/create", payload);
 export default api
