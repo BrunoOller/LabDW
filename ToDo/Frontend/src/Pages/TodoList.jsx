@@ -11,7 +11,7 @@ export default function TodoList() {
         try {
             setLoading(true)
             const res = await getTodos()
-            setTodos(res.data.Tarefas)
+            setTodos(res.data.tarefas);
         } catch (error) {
             setError(error)
             alert(error)

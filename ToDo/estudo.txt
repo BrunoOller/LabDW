@@ -107,3 +107,29 @@ Alterar TodoForm.jsx
 Alterar o TodoList.jsx
 
 Remover o comentário da rota do TodoList do arquivo App.jsx
+
+-- Backend
+
+Instalar:
+argon2
+cookie-parser
+jsonwebtoken
+dotenv
+nodemailer
+
+npm i cookie-parser jsonwebtoken dotenv nodemailer
+
+Criar a model do Usuario
+
+Criar o controller do Usuario
+
+Alterar nome do routes para routesTarefa
+Editar arquivo
+
+Criar o routesUsuario
+
+Alterar o index.js
+
+Alterar o swagger.js
+
+Rodar no terminal do Backend "node swagger"

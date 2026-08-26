@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 // Incluir as rotas 
-import routes from "./Routes/routes.js";
+import routesTarefa from "./Routes/routesTarefa.js";
+import routesUsuario from "./Routes/routesUsuario.js";
 // Importando Swagger
 import swaggerUi from "swagger-ui-express";
 import { createRequire } from "module";
@@ -21,5 +22,6 @@ app.use(cors({
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Ligar o express com as rotas
-app.use("/ToDo", routes);
+app.use("/ToDo", routesTarefa);
+app.use("/ToDo", routesUsuario);
 app.listen(5000);
