@@ -111,7 +111,7 @@ Remover o comentário da rota do TodoList do arquivo App.jsx
 -- Backend
 
 Instalar:
-argon2
+argon2 (caso não conseguir: npm i @node-rs/argon2)
 cookie-parser
 jsonwebtoken
 dotenv
@@ -133,3 +133,10 @@ Alterar o index.js
 Alterar o swagger.js
 
 Rodar no terminal do Backend "node swagger"
+
+Pegar arquivos prontos do Classroom:
+Pages - TodoList, TodoForm e login
+App.jsx
+.env (na raiz do Backend)
+
+Inserindo Sistema de Login no UsuarioController

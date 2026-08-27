@@ -13,6 +13,7 @@
   "description": "",
   "type": "module",
   "dependencies": {
+    "@node-rs/argon2": "^2.1.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
