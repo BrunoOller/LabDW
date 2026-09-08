@@ -1,11 +1,10 @@
-import { Router } from "express";
+import {Router} from "express";
 import TarefaController from "../Controllers/TarefaController.js";
+import UserMiddleware from "../Middleware/UserMiddleware.js"
 
 const routesTarefa = new Router();
 
-// Criando rotas referentes aos métodos no TarefaController
-routesTarefa.post("/create", TarefaController.Create);
-routesTarefa.get("/getAll", TarefaController.getAll);
+routesTarefa.post("/createTarefa", UserMiddleware, TarefaController.Create);
+routesTarefa.get("/getAllTarefa", UserMiddleware, TarefaController.getAll);
 
-// Exportando rotas
 export default routesTarefa;

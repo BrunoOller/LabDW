@@ -1,11 +1,14 @@
-import { Router } from "express";
+import {Router} from "express";
 import UsuarioController from "../Controllers/UsuarioController.js";
-
+import UserMiddleware from "../Middleware/UserMiddleware.js";
 const routesUsuario = new Router();
 
-// Criando rotas referentes aos métodos no UsuarioController
 routesUsuario.post("/createUsuario", UsuarioController.Create);
-routesUsuario.post("/Login", UsuarioController.Login);
+routesUsuario.post("/login", UsuarioController.Login);
+routesUsuario.post("/logout", UsuarioController.Logout);
+routesUsuario.post("/resetPassword", UsuarioController.ResetPassword);
+routesUsuario.post("/forgotPassword", UsuarioController.ForgotPassword);
+routesUsuario.get("/me", UserMiddleware, UsuarioController.Profile);
+routesUsuario.get("/getAllUsers", UserMiddleware, UsuarioController.getAllExceptLogged)
 
-// Exportando rotas
 export default routesUsuario;
