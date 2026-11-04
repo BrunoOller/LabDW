@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Usuario{
+  id        Int     @id @default(autoincrement())
+  nome              String
+  email             String  @unique
+  senha            String
+  perfil           Perfil  @default(MORADOR)
+  criadoEm         DateTime   @default(now())
+  loginCode        String?
+  loginCodeExpires DateTime?
+  @@map("usuarios")
+}
+model Ecoponto{
+  id        Int     @id @default(autoincrement())
+  nome      String
+  latitude  String
+  longitude String
+  descricao String?
+  cep       String?
+  logradouro  String?
+  numero  String?
+  bairro String?
+  cidade String?
+  uf  String?
+  nota  Int?
+  criadoEm  DateTime    @default(now())
+  lixeiras  Lixeira[]
+  @@map("ecopontos")
+}
+model Lixeira{
+  id          Int     @id @default(autoincrement())
+  uuid_sensor String 
+  tipo  Tipo
+  volume_max Int
+  nivel_cheio Int
+  ecoponto_id Int
+  criadoEm  DateTime     @default(now())
+  notificacoes  Notificacoes[]
+  ecoponto Ecoponto @relation(fields:[ecoponto_id], references:[id], onDelete:Cascade)
+  @@map("lixeiras")
+}
+model Notificacoes{
+   id          Int     @id @default(autoincrement())
+   lixeira_id  Int
+   titulo      String
+   mensagem    String
+   lida        Boolean
+   criadoEm    DateTime     @default(now())
+   lixeira    Lixeira  @relation(fields: [lixeira_id], references: [id], onDelete: Cascade)
+   @@index([lixeira_id], map:"notificacoes_lixeira_id_fkey")
+   @@map("notificacoes")
+}
+enum Perfil{
+    MORADOR
+    GESTOR
+} 
+enum Tipo{
+  PLASTICO
+  VIDRO
+  PAPEL
+  METAL
+  ORGANICO
+}
