@@ -12,7 +12,7 @@ export interface AuthRequest extends Request{
 }
 //autenticação
 export const autenticacaoToken = (req:AuthRequest, res:Response, next:NextFunction)=>{
-    const token = req.cookies.jwt;
+    const token = req.cookies.token;
     if(!token){
         return res.status(402).json({message:"Acesso Negado"});
     }
@@ -26,7 +26,7 @@ export const autenticacaoToken = (req:AuthRequest, res:Response, next:NextFuncti
     catch(error)
     {
         //limpar dados do cookies
-        res.clearCookie("jwt");
+        res.clearCookie("token", { httpOnly: true, secure: true, sameSite: "none" });
         return res.status(403).json({message:"Acesso Negado", error});
     }
 };

@@ -1,26 +1,43 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import cookieParse from "cookie-parser";
+import cookieParser from "cookie-parser";
+import fs from "fs";
+import path from "path";
 import swaggerUi from "swagger-ui-express";
-//importar as rotas
+
+// Importar as rotas
+import routerUsuario from "./Routes/UsuarioRoutes.js";
 import routerEcoponto from "./Routes/EcopontoRoutes.js";
 import routerLixeira from "./Routes/LixeiraRoutes.js";
-import swaggerDocument from "./swagger.js";
+
 const app = express();
 const PORT = process.env.PORT || 5000;
+
 app.use(cors({
     origin: process.env.FRONTEND_URL,
-    credentials:true,
+    credentials: true,
 }));
+
 app.use(express.json());
-app.use(cookieParse());
-//incluir rotas
+app.use(cookieParser());
+
+// Incluir rotas
+app.use("/ecofluxo", routerUsuario);
 app.use("/ecoponto", routerEcoponto);
 app.use("/lixeira", routerLixeira);
-//documentação swagger
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.listen(PORT, ()=>{
+
+// Configuração do Swagger (Lê o arquivo gerado pelo swagger-autogen)
+try {
+    const swaggerFile = JSON.parse(
+        fs.readFileSync(path.resolve("./swagger_output.json"), "utf-8")
+    );
+    app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+} catch (error) {
+    console.warn("Arquivo swagger_output.json não encontrado. Execute o comando de geração do Swagger.");
+}
+
+app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
-    console.log(`Swagger em http://localhost:${PORT}/api-docs`);
+    console.log(`Swagger disponível em http://localhost:${PORT}/docs`);
 });
